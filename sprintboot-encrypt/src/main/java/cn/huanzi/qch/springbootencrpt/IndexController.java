@@ -3,10 +3,8 @@ package cn.huanzi.qch.springbootencrpt;
 import cn.shuibo.annotation.Decrypt;
 import cn.shuibo.annotation.Encrypt;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @program: springBoot-master
@@ -16,6 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  **/
 @Controller
 public class IndexController {
+
+    @RequestMapping("/")
+    public ModelAndView index() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("index.html");
+        return mv;
+    }
 
     @Encrypt
     @GetMapping("/encryption")
